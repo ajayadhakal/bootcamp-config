@@ -33,19 +33,33 @@ default-contacts:
 
 rawdbs:
   # list of raw-dbs > containing rawtables > containing pipelines
-    - rawdb-name: <node_name>:db
-      dataset-external-id: <node_name>:ds
-      short-name: <Short name for raw DB>
+    - rawdb-name: src:001:sap:db
+      dataset-external-id: src:001:sap:ds
+      short-name: sap
       rawtables:
-          - rawtable-name: <table name>
+          - rawtable-name: assets
             pipelines:
         # source is a short-name identifying the pipeline source being
         # a 'db-extractor (db)', an 'Azure Function (az-func)',
         # or 'Azure Data Factory (adf)', 'Python script (py)', ..
-                - source: <source type>
+                - source: csv
                   schedule: On trigger
                   contacts:
-                      - name: <Contact name>
-                        email: <Contact e-mail>
-                        role: <Contact role>
+                      - name: Ajaya Dhakal
+                        email: ajaya.dhakal@gmail.com
+                        role: Bootcamp 42 Administrator
+                        send-notification: false
+
+    - rawdb-name: src:002:opcua:db
+      dataset-external-id: src:002:opcua:ds
+      short-name: opcua
+      rawtables:
+          - rawtable-name: datapoints
+            pipelines:
+                - source: ice-cream-api
+                  schedule: On trigger
+                  contacts:
+                      - name: Ajaya Dhakal
+                        email: ajaya.dhakal@gmail.com
+                        role: Bootcamp 42 Administrator
                         send-notification: false
