@@ -1,0 +1,19 @@
+---
+# Manifest file downloaded from fusion
+externalId: tr-ts_assets_mapping_ui
+name: ts_assets_mapping_ui
+query: file:transformation.sql
+destination:
+    type: timeseries
+ignoreNullFields: true
+shared: true
+action: update
+dataSetExternalId: src:002:opcua:ds
+authentication:
+    clientId: ${COGNITE_CLIENT_ID}
+    clientSecret: ${COGNITE_CLIENT_SECRET}
+    tokenUrl: https://login.microsoftonline.com/16e3985b-ebe8-4e24-9da4-933e21a9fc81/oauth2/v2.0/token
+  # Optional: If idP requires providing the scopes
+    cdfProjectName: ${CDF_PROJECT_NAME}
+    scopes:
+        - https://westeurope-1.cognitedata.com/.default
